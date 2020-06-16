@@ -1,0 +1,444 @@
+@import 'defines.scss';
+@import 'functions.scss';
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+  font-size: var(--font-size-default);
+  color: var(--color-text-default);
+}
+
+body {
+  background-color: var(--color-bg);
+}
+
+.dark {
+  color: var(--color-text-dark);
+}
+
+.light {
+  color: var(--color-text-light);
+}
+
+section {
+  @include margin-normal;
+  padding: 0;
+}
+
+h1, h2, p, pre, ul {
+  margin: calc(var(--padding-content) / 2) var(--padding-content);
+}
+
+h1 {
+  font-size: var(--font-size-bigger);
+}
+
+h2 {
+  font-size: var(--font-size-big);
+}
+
+h3 {
+  font-size: var(--font-size-small);
+}
+
+h4 {
+  font-size: var(--font-size-smaller);
+}
+
+a {
+  text-decoration: none;
+}
+
+a:link {
+  color: var(--color-anchor-normal)
+}
+
+a:visited {
+  color: var(--color-anchor-normal)
+}
+
+a:hover {
+  color: var(--color-anchor-hover)
+}
+
+a:active {
+  color: var(--color-anchor-hover)
+}
+
+pre {
+  border: var(--color-text-default) solid 1px;
+  padding: calc(var(--padding-content) / 4);
+  white-space: pre-wrap;
+}
+
+li {
+  margin: calc(var(--margin-content) / 4);
+  font-size: var(--font-size-default);
+  list-style-type: none;
+}
+
+.menu {
+  li {
+    margin: var(--margin-content);
+    font-size: var(--font-size-medium);
+  }
+}
+
+div {
+  margin: 0;
+  padding: 0;
+}
+
+header.fixed,
+footer.fixed {
+  position: fixed;
+  left: 0;
+  z-index: 100;
+}
+
+header.fixed {
+  top: 0;
+}
+
+footer.fixed {
+  bottom: 0;
+}
+
+header,
+header.fixed,
+footer,
+footer.fixed {
+  display: block;
+  width: 100%;
+  @include padding-normal;
+  margin: 0;
+  color: var(--color-text-header);
+
+  h1, h2, a, pre {
+    margin: 0;
+  }
+}
+
+header,
+header.fixed {
+  background-color: var(--color-header);
+}
+
+footer,
+footer.fixed {
+  background-color: var(--color-footer);
+}
+
+header.hide, footer.hide {
+  width: auto;
+  margin: 0;
+  display: block;
+  opacity: 0;
+  z-index: 0;
+}
+
+.sidebar {
+  height: 100%;
+  float: left;
+}
+
+.wrapper {
+  width: 100vw;
+  min-height: 100vh;
+  padding: 0;
+  @include sm {
+    width: var(--width-content-sm);
+  }
+  @include md {
+    width: var(--width-content-md);
+  }
+  @include lg {
+    width: var(--width-content-lg);
+  }
+  margin: 0 auto;
+  background-color: var(--color-bg-content);
+  position: relative;
+  box-sizing: border-box;
+
+  header.fixed,
+  footer.fixed {
+    left: inherit;
+    @include sm {
+      width: var(--width-content-sm);
+    }
+    @include md {
+      width: var(--width-content-md);
+    }
+    @include lg {
+      width: var(--width-content-lg);
+    }
+  }
+}
+
+main {
+  margin: 0;
+}
+
+.full-width {
+  width: 100%;
+  min-width: 100%;
+}
+
+.layers {
+  position: relative;
+}
+
+.layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.full-height {
+  height: 0;
+  min-height: 100%;
+}
+
+.no-padding {
+  padding: 0 !important;
+}
+
+.padding {
+  @include padding-normal;
+}
+
+.margin {
+  @include margin-normal;
+}
+
+.no-margin {
+  margin: 0 !important;
+}
+
+.no-h-margin {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.no-v-margin {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.center-h {
+  @include center-h;
+}
+
+.center-h,
+.center-v {
+  width: 100%;
+}
+
+.center-v {
+  @include center-v;
+  margin: 0;
+
+  > * {
+    @include center-v-child;
+    margin: 0;
+  }
+}
+
+.right {
+  text-align: right;
+
+  > * {
+    display: inline-block;;
+  }
+}
+
+.left {
+  text-align: left;
+
+  > * {
+    display: inline-block;;
+  }
+}
+
+.inline {
+  display: inline;
+}
+
+.cols {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  @include sm {
+    @for $index from 0 through 12 {
+      .col-sm-#{$index} {
+        width: calc(100% / 12 * #{$index}) !important;
+        flex-grow: 0;
+      }
+    }
+  }
+  @include md {
+    @for $index from 0 through 12 {
+      .col-md-#{$index} {
+        width: calc(100% / 12 * #{$index}) !important;
+        flex-grow: 0;
+      }
+    }
+  }
+  @include lg {
+    @for $index from 0 through 12 {
+      .col-lg-#{$index} {
+        width: calc(100% / 12 * #{$index}) !important;
+        flex-grow: 0;
+      }
+    }
+  }
+  @include md-lg {
+    @for $index from 0 through 12 {
+      .col-lg-#{$index} {
+        width: calc(100% / 12 * #{$index}) !important;
+        flex-grow: 0;
+      }
+    }
+  }
+  @for $index from 0 through 12 {
+    .col-#{$index} {
+      width: calc(100% / 12 * #{$index});
+      flex-grow: 0;
+    }
+  }
+
+  > * {
+    flex-grow: 1;
+  }
+
+  .col-auto {
+    flex-grow: 100;
+  }
+
+  .col {
+    flex-grow: 0;
+  }
+}
+
+.rows {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  @include sm {
+    @for $index from 1 through 12 {
+      .row-sm-#{$index} {
+        height: calc(100% / 12 * #{$index}) !important;
+        flex-grow: 0;
+      }
+    }
+  }
+  @include md {
+    @for $index from 1 through 12 {
+      .row-md-#{$index} {
+        height: calc(100% / 12 * #{$index}) !important;
+        flex-grow: 0;
+      }
+    }
+  }
+  @include lg {
+    @for $index from 1 through 12 {
+      .row-lg-#{$index} {
+        height: calc(100% / 12 * #{$index}) !important;
+        flex-grow: 0;
+      }
+    }
+  }
+  @for $index from 1 through 12 {
+    .row-#{$index} {
+      height: calc(100% / 12 * #{$index});
+      flex-grow: 0;
+    }
+  }
+
+  > * {
+    flex-grow: 1;
+  }
+
+  .row-auto {
+    flex-grow: 100;
+  }
+
+  .row {
+    flex-grow: 0;
+  }
+}
+
+.only-sm {
+  @include sm() {
+    display: block;
+  }
+  @include md() {
+    display: none;
+  }
+  @include lg() {
+    display: none;
+  }
+}
+
+.only-md {
+  @include sm() {
+    display: none;
+  }
+  @include md() {
+    display: block;
+  }
+  @include lg() {
+    display: none;
+  }
+}
+
+.only-lg {
+  @include sm() {
+    display: none;
+  }
+  @include md() {
+    display: none;
+  }
+  @include lg() {
+    display: block;
+  }
+}
+
+.hide-sm {
+  @include sm() {
+    display: none;
+  }
+}
+
+.hide-md {
+  @include md() {
+    display: none;
+  }
+}
+
+.hide-lg {
+  @include lg() {
+    display: none;
+  }
+}
+
+.hide-md-lg {
+  @include md() {
+    display: none;
+  }
+  @include lg() {
+    display: none;
+  }
+}
+
+.button {
+  cursor: pointer;
+}

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Shooting-Star CSS</title>
+    <link rel="stylesheet" href="shooting-star.min.css">
+    <style>
+        :root {
+            --width-content-lg: 1024px;
+        }
+
+        .menu {
+            border-right: #7b8994 solid 1px;
+        }
+
+        .bg-red{
+            background-color: red;
+        }
+        .bg-blue{
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+<header class="fixed">
+    <h1>Shooting-Star CSS</h1>
+</header>
+<div class="wrapper">
+    <header><h1>Shooting-Star CSS</h1></header>
+    <div class="cols">
+        <div class="col-lg-auto menu col-sm-0 hide-sm">
+            <ul>
+                <li><a href="#概要">概要</a></li>
+                <li><a href="#導入方法">導入方法</a></li>
+            </ul>
+        </div>
+        <div class="col-lg-9 col-sm-12">
+            <div id="概要">
+                <h2>概要</h2>
+                <p>
+                    Shooting-Star CSSは軽量のレスポンシブCSSフレームワークです。<br>
+                    主にレイアウトに重点を置いて対応しています。
+                </p>
+            </div>
+            <div id="導入方法">
+                <h2>導入方法</h2>
+                <p>
+                    利用するhtmlのhaedタグ内に下記を埋め込んで下さい。
+                </p>
+                <pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;/path/to/shooting-star.min.css&quot;&gt;</code></pre>
+            </div>
+            <div id="レスポンシブ">
+                <h2>レスポンシブ</h2>
+                <p>
+                    Shooting-Star CSSでは、下記の3つのパターンでレイアウトの分割方法を変更します。
+                </p>
+                <ul>
+                    <li>横が0-480px</li>
+                    <li>横が481-999px</li>
+                    <li>横が1000px以上</li>
+                </ul>
+                <p>
+                    クラス名の中で明示する場合、それぞれ<b>sm</b>, <b>md</b>, <b>lg</b>というプレフィクスを用います。<br>
+                </p>
+                <p>
+                    クラス内でlgのみ指定した場合、mdの状態でもその値が適用されます。<br>
+                    二段階でレスポンシブ切り替えを行う場合は、smとlgのみ使い分けて下さい。<br>
+                </p>
+            </div>
+            <div id="全体構成">
+                <h2>全体構成</h2>
+                <p>
+                    class="wrapper"のdivタグで囲んだ部分にメインコンテンツを表示します。
+                </p>
+                <p>
+                    PCやタブレットの場合は一定幅で左右に余白ができます。<br>
+                    分割方法がlgの場合、このページは横1024pxで固定されています。
+                </p>
+                <p>
+                    スマートフォンでは左右に余白を作らず、100%で表示します。
+                </p>
+            </div>
+            <div id="横方向の比率">
+                <h2>横方向の分割</h2>
+                <p>
+                    横方向にレイアウトを分割したい場合、まずclass="cols"のdivタグを作成します。<br>
+                    さらにその中にclass="col-[分割方法]-[数値]"のdivタグを作成します。<br>
+                </p>
+                <p>
+                    数値の合計が12になる場合に横幅が100%となります。<br>
+                    分割方法を指定しない場合は画面サイズに関わらずその比率となります。<br>
+                    指定した分割方法となった場合、1:1となります。<br>
+                </p>
+                <p>
+                    以下の例では、分割方法がlgの場合、1:1:2のレイアウトを作成しています。
+                    それ以外の場合では、1:1:10となります。
+                </p>
+                <ul>
+                    <li>
+                        class="cols"
+                        <ul>
+                            <li>class="col-lg-3 col-1"</li>
+                            <li>class="col-lg-3 col-1"</li>
+                            <li>class="col-lg-6 col-10"</li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="cols padding">
+                    <div class="col-lg-3 col-1 bg-red">&nbsp;</div>
+                    <div class="col-lg-3 col-1 bg-blue">&nbsp;</div>
+                    <div class="col-lg-6 col-10 bg-red">&nbsp;</div>
+                </div>
+            </div>
+            <div id="縦方向の比率">
+                <h2>縦方向の分割</h2>
+                <p>
+                    縦方向にレイアウトを分割したい場合、まずclass="rows"のdivタグを作成します。<br>
+                    さらにその中にclass="row-[分割方法]-[数値]"のdivタグを作成します。<br>
+                    数値の合計が12になる場合に縦幅が100%となります。<br>
+                    分割方法を指定しない場合は画面サイズに関わらずその比率となります。<br>
+                    指定した分割方法となった場合、1:1となります。<br>
+                </p>
+                <p>
+                    以下の例では、分割方法がlgの場合、1:1:2のレイアウトを作成しています。
+                    それ以外の場合では、1:1:10となります。
+                </p>
+                <ul>
+                    <li>
+                        class="rows" height: 320px
+                        <ul>
+                            <li>class="row-lg-3 col-1"</li>
+                            <li>class="row-lg-3 col-1"</li>
+                            <li>class="row-lg-6 col-10"</li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="rows padding" style="height: 320px;">
+                    <div class="row-lg-3 row-1 bg-red">&nbsp;</div>
+                    <div class="row-lg-3 row-1 bg-blue">&nbsp;</div>
+                    <div class="row-lg-6 row-10 bg-red">&nbsp;</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+@import 'defines.scss';
+
+@mixin sm {
+    @media screen and (max-width:480px) {
+        @content
+    }
+}
+
+@mixin md {
+    @media screen and (min-width: 481px) and (max-width: 999px) {
+        @content
+    }
+}
+
+@mixin md-lg {
+    @media screen and (min-width: 481px) {
+        @content
+    }
+}
+
+@mixin lg {
+    @media screen and (min-width:1000px) {
+        @content
+    }
+}
+
+@mixin center-v {
+    position: relative;
+}
+
+@mixin center-h {
+    text-align: center;
+    vertical-align: middle;
+}
+
+@mixin center-v-child {
+    position : absolute;
+    top      : 50%;
+    transform: translateY(-50%);
+}
+
+@mixin padding-normal {
+    padding: var(--padding-content);
+}
+
+@mixin margin-normal {
+    margin: var(--padding-content);
+}
