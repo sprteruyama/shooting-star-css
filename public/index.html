@@ -103,9 +103,9 @@
                 <p>
                     明示的にmarginをつけたくない場合は、class="no-margin"を指定して下さい。
                 </p>
-                <div class="margin">
-                    <p class="bg-blue inline no-margin">ほげ</p>
-                    <p class="bg-red inline no-margin">ほげ</p>
+                <div class="margin" style="font-size: 0">
+                    <span class="bg-blue no-margin">ほげ</span>
+                    <span class="bg-red no-margin">ほげ</span>
                 </div>
                 <p>
                     横方向だけmarginをなくしたい場合は、class="no-h-margin"、縦方向だけmarginをなくしたい場合はclass="no-v-margin"が利用できます。
@@ -236,38 +236,34 @@
                 <h2>上下左右寄せ</h2>
                 <p>div要素内で上下左右に寄せたい場合は、それぞれclass="top", "bottom", "left", "right"を指定します。</p>
                 <h3>右寄せ（right）</h3>
-                <div class="cols">
-                    <div class="col-4"></div>
+                <div class="cols center-h full-width">
                     <div class="col-4 right bg-blue" style="height: 60px;">
-                        <p class="no-padding">ほげ</p>
+                        ほげ
                     </div>
                 </div>
                 <h3>左寄せ（left）</h3>
-                <div class="cols">
-                    <div class="col-4"></div>
+                <div class="cols center-h full-width">
                     <div class="col-4 left bg-blue" style="height: 60px;">
-                        <p class="no-padding">ほげ</p>
+                        ほげ
                     </div>
                 </div>
                 <h3>上寄せ（top）</h3>
-                <div class="cols">
-                    <div class="col-4"></div>
+                <div class="cols center-h full-width">
                     <div class="col-4 top bg-blue" style="height: 60px;">
-                        <p class="no-padding">ほげ</p>
+                        ほげ
                     </div>
                 </div>
                 <h3>下寄せ（bottom）</h3>
-                <div class="cols">
-                    <div class="col-4"></div>
+                <div class="cols center-h full-width">
                     <div class="col-4 bottom bg-blue" style="height: 60px;">
-                        <p class="no-padding">ほげ</p>
+                        ほげ
                     </div>
                 </div>
-                <p>右下寄せを行いたい場合は、bottomとrightを入れ子にして下さい。</p>
+                <p>右下寄せを行いたい場合は、bottomとrightを両方指定して下さい。</p>
                 <div class="cols">
                     <div class="col-4"></div>
-                    <div class="col-4 bottom bg-blue" style="height: 60px;">
-                        <p class="no-padding full-width right">ほげ</p>
+                    <div class="col-4 bottom right bg-blue" style="height: 60px;">
+                        ほげ
                     </div>
                 </div>
             </div>
@@ -276,45 +272,32 @@
                 <p>
                     div要素内を横方向にセンタリングするには、class="center-h"を指定します。
                 </p>
-                <div class="cols">
-                    <div class="col-4"></div>
+                <div class="cols center-h full-width">
                     <div class="col-4 center-h bg-blue">
                         ほげ
                     </div>
                 </div>
                 <p>
                     div要素内を縦方向にセンタリングするには、class="center-v"を指定します。<br>
-                    ただし、文字だけの場合は必ずdivやpタグ等で囲って下さい。
                 </p>
-                <div class="cols">
-                    <div class="col-4"></div>
+                <div class="cols center-h full-width">
                     <div class="col-4 center-v bg-blue" style="height: 60px;">
-                        <p>ほげ</p>
+                        ほげ
                     </div>
                 </div>
                 <p>
-                    縦方向と横方向に完全にセンタリングするためには、入れ子にする必要があります。<br>
-                    center-hとcenter-vを同時に指定できません。また、上下左右寄せも同時には指定できません。
+                    縦方向と横方向に完全にセンタリングするためには、center-vとcenter-hを両方指定して下さい。
                 </p>
-                <ul>
-                    <li>class="center-v"</li>
-                    <li>
-                        <ul>
-                            <li>class="center-h"</li>
-                        </ul>
-                    </li>
-                </ul>
-                <div class="cols">
-                    <div class="col-4"></div>
-                    <div class="col-4 center-v bg-blue" style="height: 60px;">
-                        <div class="center-h">ほげ</div>
+                <div class="cols center-h full-width">
+                    <div class="col-4 center-v center-h bg-blue" style="height: 60px;">
+                        ほげ
                     </div>
                 </div>
             </div>
             <div id="重ね合わせ">
                 <h2>重ね合わせ</h2>
                 <p>重ね合わせは親のdivにclass="layers"を指定し、子のdivにclass="layer"を指定して下さい。</p>
-                <p>大きさはstyleのtopやwidthで指定します。</p>
+                <p>位置や大きさはstyleのtopやwidthで指定します。</p>
                 <ul>
                     <li>class="layers" width: 64px;height: 64px</li>
                     <li>
