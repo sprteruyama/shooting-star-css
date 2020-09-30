@@ -1,5 +1,6 @@
 @import 'defines.scss';
 @import 'functions.scss';
+@import 'form.scss';
 
 * {
   padding: 0;
@@ -277,12 +278,12 @@ main {
 
 .top {
   display: flex;
-  align-items: start;
+  align-items: flex-start;
 }
 
 .bottom {
   display: flex;
-  align-items: end;
+  align-items: flex-end;
 }
 
 .right {
