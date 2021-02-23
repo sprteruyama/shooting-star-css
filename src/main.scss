@@ -288,12 +288,12 @@ main {
 
 .right {
   display: flex;
-  justify-content: right;
+  justify-content: flex-end;
 }
 
 .left {
   display: flex;
-  justify-content: left;
+  justify-content: flex-start;
 }
 
 .inline {
@@ -466,6 +466,10 @@ main {
   @include lg() {
     display: none;
   }
+}
+
+.hide {
+  display: none;
 }
 
 .button {
