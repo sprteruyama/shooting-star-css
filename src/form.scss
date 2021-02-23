@@ -4,16 +4,22 @@
     color: var(--color-text-default);
   }
 
-  input, button {
+  input, button, a.button {
     border: solid var(--color-anchor-normal);
     border-radius: 4px;
     border-width: 2px;
     padding: calc(var(--padding-content) / 4);
     color: var(--color-text-default);
     background-color: var(--color-bg-content);
+
   }
 
-  input[type="button"]:active {
+  a.button {
+    display: inline-block;
+    text-align: center;
+  }
+
+  input[type="button"]:active, a.button:active {
     color: var(--color-anchor-hover);
     border-color: var(--color-anchor-hover);
   }
