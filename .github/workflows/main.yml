@@ -34,4 +34,4 @@ jobs:
           npm install -g yarn
           yarn install
       - run: gulp build
-      - run: cat ./public/shooting-star-css.min.css
+      - run: ls ./public -l
